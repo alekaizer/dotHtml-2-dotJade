@@ -11,6 +11,8 @@ head
     | &#x9;&#x9;
     script(type='text/javascript', src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
     | &#x9;
+    script(type='text/javascript', src='/js/upload.js')
+    | &#x9;
     link(rel='stylesheet', type='text/css', href='/css/style.css')
     | &#x9;
   .container
@@ -28,8 +30,8 @@ head
       .form-group
         div(class="over")
           a(class="link-upload") <h2 class="glyphicon glyphicon-cloud-upload"><small>Click here to upload your html file</small></h2>
-        input(type='file', name="userFile", class="input-lg")
-        | &#x9;&#x9;&#x9;&#x9;&#x9;
+          input(type='file', name="userFile", id="userFile", onChange="upload()", class="input-lg")
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
       .form-group
         button.btn.btn-default.glyphicon.glyphicon-cloud-upload.input-lg(type='submit', class="input-lg") Upload
     footer
@@ -37,3 +39,5 @@ head
         a(href="http://www.github.com/alekaizer") Github 
         a(href="http://www.twitter.com/alekaizer") Twitter 
         a(href="https://www.npmjs.com/package/html2jade") html2jade
+        h4
+          small Achille AROUKO
