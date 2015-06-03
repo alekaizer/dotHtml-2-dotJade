@@ -1,10 +1,8 @@
 var express = require('express'),
 	server = express(),
-	//pub = __dirname + '/static/',
-	//views = __dirname + '/views',
 	bodyParser = require('body-parser'),
 	fs = require('fs'),
-	multer = require('multer'),
+	multer = require('multer'), // for handling multipart uploading in the form.
 	done = false,
 	filename = "",
 	html2jade;
@@ -33,8 +31,24 @@ server.post('/convert',  function (req, res) {
 			console.log("creating the new file");
 			path = './tmp/'+req.files.userFile.originalname.substring(0,req.files.userFile.originalname.lastIndexOf("."))+'.jade';
 			console.log(path);
+			// the new dotJade file is created and stored in a temporary folder
 			fs.writeFile(path, jade, function(err){
-				res.download(path);
+				res.download(path, function(err){
+					//dowloading completed
+					console.log("Download Completed");
+					// After each conversion and completed download, the temporaries files are deleted
+					// so there's no file stored on our hard drive.
+					try {var files = fs.readdirSync('./tmp/');
+					} catch(e) {return;}
+					if(files.length>0) 
+						for (var i = 0; i < files.length; i++) {
+         					var filePath = './tmp/' + files[i];
+          					if (fs.statSync(filePath).isFile()){
+            					fs.unlinkSync(filePath);
+            					console.log("File "+filePath+" deleted");
+            				}
+            			}
+				});
 				if(err) console.log(err)
 				console.log("File created");
 			});
