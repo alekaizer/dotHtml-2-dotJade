@@ -1,0 +1,43 @@
+.container {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px 8px 5px 8px;
+	min-height: 600px;
+	box-shadow: 4px 3px 4px -1px rgba(88, 88, 88, 0.8), -4px 3px 8px -1px rgba(88, 88, 88, 0.8);
+}
+
+input[type='file'] {
+	display: none;
+}
+
+.over {
+		top:0;
+        left:0;
+        margin:20px;
+        cursor:pointer;
+        overflow:hidden;
+        padding-bottom: 15px;
+        padding-bottom: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align:center;
+        vertical-align: center;
+        position:relative;
+        background-color:#f6f7f8;
+        border:solid 1px #d2d2d7;
+}
+
+.link-upload {
+	text-decoration: none;
+	border: solid;
+	background-color: #f6f7f8; 
+	border-width: 1px;
+	border-color: #fff;
+	border-radius: 5px;
+	padding: 15px 5px 15px 5px;
+	box-shadow: 2px 1px 2px -1px rgba(88, 88, 88, 0.8), -2px 1px 6px -1px rgba(88, 88, 88, 0.8);
+}
+
+.centered {
+	margin-left: 35%;
+}
